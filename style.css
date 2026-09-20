@@ -1,7 +1,5 @@
-/* Importando uma fonte moderna e elegante */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Estilos Gerais */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #FAF8F5;
@@ -13,12 +11,12 @@ body {
     padding-bottom: 140px;
 }
 
-/* Estilo do Banner com Imagem de Fundo e Texto na Esquerda */
+/* --- BANNER TOPO CORRIGIDO --- */
 .banner-topo {
     position: relative;
     width: 100%;
-    height: 400px;
-    background-image: url('banner-topo.png'); /* Certifique-se de que sua imagem se chama exatamente banner.png */
+    height: 400px; /* Isso garante que a imagem apareça por inteiro */
+    background-image: url('banner-topo.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,27 +24,27 @@ body {
     margin-bottom: 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     display: flex;
-    align-items: center; /* Centraliza verticalmente na altura do banner */
-    justify-content: flex-start; /* Joga o conteúdo para a esquerda */
-    padding-left: 60px; /* Afasta o texto da bordinha esquerda do monitor */
+    align-items: center;
+    justify-content: flex-start; /* Alinha o texto à esquerda */
+    padding-left: 60px;
 }
 
 .banner-texto {
-    text-align: left; /* Alinha o texto à esquerda */
-    max-width: 480px; /* Limita a largura para caber perfeitamente no espaço vazio */
+    text-align: left;
+    max-width: 480px;
     z-index: 2;
 }
 
 .banner-texto h1 {
-    font-size: 42px; /* Tamanho menor e ideal */
+    font-size: 42px;
     font-weight: 700;
     margin: 0 0 8px 0;
-    color: #1A252F; /* Cor escura para destacar bem no fundo claro */
-    text-shadow: 0 2px 4px rgba(255,255,255,0.9); /* Sombra suave para legibilidade */
+    color: #1A252F;
+    text-shadow: 0 2px 4px rgba(255,255,255,0.9);
 }
 
 .banner-texto p.subtitle {
-    font-size: 18px; /* Subtítulo proporcional */
+    font-size: 18px;
     font-weight: 500;
     margin: 0;
     line-height: 1.4;
@@ -54,28 +52,29 @@ body {
     text-shadow: 0 1px 3px rgba(255,255,255,0.9);
 }
 
-/* Caixa de Busca com Estilo Flutuante Limpo */
+/* Caixa de Busca */
 .search-box {
     background: #ffffff;
-    padding: 30px;
+    padding: 40px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    margin: 0 auto 40px auto;
-    max-width: 650px;
+    margin: 40px auto;
+    max-width: 1000px;
+    width: 90%;
     border: 1px solid #E6DFD5;
 }
 
 .search-box p {
-    font-size: 20px;
+    font-size: clamp(22px, 2.5vw, 28px);
     font-weight: 600;
     color: #2C3E50;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .search-input {
-    width: 90%;
-    padding: 16px 20px;
-    font-size: 18px;
+    width: 95%;
+    padding: 20px 25px;
+    font-size: 20px;
     border: 2px solid #D4A373;
     border-radius: 8px;
     outline: none;
@@ -89,22 +88,20 @@ body {
     box-shadow: 0 0 8px rgba(0, 64, 128, 0.15);
 }
 
-/* Grade de Botões Estilo "Cards" Modernos */
+/* Grade de Botões */
 .grid-buttons {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 650px;
+    gap: 25px;
+    max-width: 1000px;
+    width: 90%;
     margin: 0 auto;
-    padding: 0 15px;
 }
 
+/* Estilo geral dos botões */
 .btn {
     background-color: #ffffff;
     color: #2C3E50;
-    padding: 22px 25px;
-    font-size: 20px;
-    font-weight: 600;
     border: 2px solid #E6DFD5;
     border-radius: 12px;
     cursor: pointer;
@@ -113,15 +110,46 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 25px;
     transition: all 0.3s ease;
     text-align: left;
 }
 
-.btn i {
-    font-size: 26px;
+/* Botões de Link (Menu Inicial) */
+a.btn {
+    padding: 35px 40px;
+    font-size: clamp(20px, 2.2vw, 28px); 
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    font-weight: 600;
+}
+
+/* Botões que são Divs (Menus Internos) */
+div.btn {
+    padding: 30px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+div.btn h3 {
+    font-size: clamp(20px, 2.2vw, 26px);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+div.btn p {
+    font-size: clamp(16px, 1.5vw, 20px);
+    margin: 0;
+}
+
+.btn i, a.btn i {
+    font-size: clamp(30px, 2.5vw, 38px);
     color: #D4A373;
-    width: 40px;
+    width: 50px;
     text-align: center;
 }
 
@@ -133,26 +161,26 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.btn:hover i {
-    color: #ffffff;
-}
+.btn:hover i, .btn:hover h3, .btn:hover p { color: #ffffff !important; }
 
-/* Destaque especial para o WhatsApp */
-.btn-whatsapp {
-    border-color: #25D366;
-}
+/* Cores Específicas dos Botões */
+.btn-saude { border-color: #e84393; }
+.btn-saude i { color: #e84393 !important; }
+.btn-saude:hover { background-color: #e84393; color: white; border-color: #e84393; }
 
-.btn-whatsapp i {
-    color: #25D366;
-}
+.btn-whatsapp { border-color: #25D366; }
+.btn-whatsapp i { color: #25D366 !important; }
+.btn-whatsapp:hover { background-color: #25D366; color: white; border-color: #25D366; }
 
-.btn-whatsapp:hover {
-    background-color: #25D366;
-    color: white;
-    border-color: #25D366;
-}
+.btn-youtube { border-color: #FF0000; }
+.btn-youtube i { color: #FF0000 !important; }
+.btn-youtube:hover { background-color: #FF0000; color: white; border-color: #FF0000; }
 
-/* Assistente Virtual Interativo Flutuante (Léo) */
+.btn-transporte { border-color: #000000; }
+.btn-transporte i { color: #000000 !important; }
+.btn-transporte:hover { background-color: #000000; color: white; border-color: #000000; }
+
+/* Assistente Virtual */
 .interactive-pet {
     position: fixed;
     bottom: 20px;
@@ -161,7 +189,7 @@ body {
     align-items: flex-end;
     gap: 12px;
     z-index: 1000;
-    max-width: 340px;
+    max-width: 380px;
     animation: bouncePet 2s infinite ease-in-out;
 }
 
@@ -193,7 +221,7 @@ body {
     border-radius: 14px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
     text-align: left;
-    font-size: 14px;
+    font-size: 15px;
     color: #2C3E50;
     position: relative;
 }
@@ -202,10 +230,50 @@ body {
     color: #D4A373;
     display: block;
     margin-bottom: 4px;
-    font-size: 15px;
+    font-size: 16px;
 }
 
-/* Rodapé */
+.pet-acoes {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    border-top: 1px dashed #D4A373;
+    padding-top: 10px;
+    flex-wrap: wrap; 
+}
+
+.btn-acao-pet {
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    justify-content: center;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    min-width: 80px;
+}
+
+.btn-acao-pet:hover { background-color: #002B5B; }
+
+body.fonte-grande p, 
+body.fonte-grande h1, 
+body.fonte-grande h2, 
+body.fonte-grande h3, 
+body.fonte-grande span, 
+body.fonte-grande li, 
+body.fonte-grande a {
+    font-size: 135% !important; 
+    line-height: 1.6;
+}
+body.fonte-grande .btn-acao-pet { font-size: 14px; }
+
 footer {
     margin-top: 60px;
     font-size: 15px;
@@ -214,51 +282,49 @@ footer {
     padding-top: 20px;
 }
 
-/* Responsividade Automática para Celulares */
+/* Responsividade para Celulares */
 @media (max-width: 768px) {
-.banner-topo {
-        height: auto; /* Deixa a altura flexível para o conteúdo se ajeitar */
+    .banner-topo {
+        height: auto;
         min-height: 340px;
         flex-direction: column;
-        justify-content: flex-end; /* Joga o texto para baixo da imagem */
+        justify-content: flex-end;
         padding: 20px;
-        background-position: center top; /* Foca na parte superior da foto onde aparecem as pessoas */
+        background-position: center top;
     }
-    
     .banner-texto {
         text-align: center;
         max-width: 100%;
-        background: rgba(250, 248, 245, 0.85); /* Cria um fundo levemente translúcido atrás do texto para destacar da foto */
+        background: rgba(250, 248, 245, 0.85);
         padding: 15px;
         border-radius: 10px;
         margin-top: 20px;
     }
-
-    .banner-texto h1 {
-        font-size: 28px;
-        color: #1A252F;
-    }
-
-    .banner-texto p.subtitle {
-        font-size: 14px;
-    }
-
     .search-box {
-        padding: 20px;
-        margin: 20px 10px 30px 10px; /* Evita que encoste nas bordas laterais do celular */
-        max-width: 100%;
-        box-sizing: border-box;
+        padding: 25px 20px;
+        margin: 20px auto 30px auto;
     }
+    .search-input { width: 100%; font-size: 16px; box-sizing: border-box; }
+    
+    a.btn {
+        padding: 20px 25px;
+        white-space: normal; 
+    }
+    div.btn {
+        padding: 20px 25px;
+    }
+    .btn i, a.btn i { font-size: 28px; width: 40px; }
 
-    .search-input {
-        width: 100%;
-        font-size: 16px;
-        box-sizing: border-box;
+    .interactive-pet {
+        max-width: 90%;
+        bottom: 15px;
+        right: 15px;
+        gap: 8px;
     }
+    .pet-avatar { width: 50px; height: 50px; font-size: 22px; }
+    .pet-speech { padding: 10px 12px; font-size: 13px; }
+    .pet-speech strong { font-size: 14px; margin-bottom: 2px; }
 }
-
-
-/* --- ESTILOS DA TELA FLUTUANTE (MODAL) --- */
 
 .botao-topo-flutuante {
     position: fixed;
@@ -267,7 +333,7 @@ footer {
     background-color: #004080;
     color: white;
     border: none;
-    border-radius: 5050px; /* Deixa redondo/oval */
+    border-radius: 50px;
     width: 55px;
     height: 55px;
     font-size: 22px;
@@ -276,23 +342,17 @@ footer {
     align-items: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     cursor: pointer;
-    z-index: 998; /* Fica acima do conteúdo, mas abaixo dos modais */
+    z-index: 998;
     transition: background-color 0.3s;
 }
 
-.botao-topo-flutuante:hover {
-    background-color: #002B5B;
-}
-
+.botao-topo-flutuante:hover { background-color: #002B5B; }
 
 .modal-fundo {
-    display: none; /* Fica escondido até alguém clicar */
+    display: none;
     position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Fundo escurecido suave */
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 999;
     justify-content: center;
     align-items: center;
@@ -301,26 +361,27 @@ footer {
 
 .modal-conteudo {
     background-color: #fff;
-    padding: 25px;
+    padding: 35px;
     border-radius: 12px;
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
     max-height: 85vh;
-    overflow-y: auto; /* Permite rolar a tela se o texto for grande */
+    overflow-y: auto;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     text-align: left;
     position: relative;
+    box-sizing: border-box;
 }
 
 .botao-fechar {
     background-color: #e74c3c;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 6px;
+    padding: 15px 20px;
+    font-size: 20px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 25px;
     font-weight: bold;
     display: block;
     width: 100%;

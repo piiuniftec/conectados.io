@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evitar Golpes - Conectados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div style="max-width: 800px; margin: 20px auto; text-align: left; padding: 0 15px;">
+        <a href="index.html" class="btn" style="display: inline-flex; width: auto; padding: 12px 20px; font-size: 16px;">
+            <i class="fa-solid fa-arrow-left"></i> Voltar para a Página Inicial
+        </a>
+    </div>
+
+    <div class="search-box" style="margin-bottom: 30px;">
+        <h1 style="color: #e74c3c; font-size: 28px; margin-bottom: 10px;">
+            <i class="fa-solid fa-shield-halved"></i> Como Evitar Golpes
+        </h1>
+        <p style="font-size: 16px; color: #555;">
+            Dicas essenciais para proteger seu dinheiro e suas informações na internet. A regra de ouro é: na dúvida, pergunte e desconfie!
+        </p>
+    </div>
+
+    <div class="grid-buttons">
+        <div class="btn" onclick="abrirModal('modalWhats')" style="cursor: pointer; border-color: #e74c3c;">
+            <h3 style="color: #c0392b;"><i class="fa-solid fa-message"></i> Parentes pedindo dinheiro no WhatsApp</h3>
+            <p style="color: #444;">Alguém mandou mensagem de um número novo dizendo que é seu parente e pediu Pix? Cuidado!</p>
+        </div>
+
+        <div class="btn" onclick="abrirModal('modalLinks')" style="cursor: pointer; border-color: #e74c3c;">
+            <h3 style="color: #c0392b;"><i class="fa-solid fa-link"></i> Cuidado com Links e SMS Falsos</h3>
+            <p style="color: #444;">Não clique em mensagens dizendo que você ganhou um prêmio, ou que tem dívidas no banco.</p>
+        </div>
+        
+        <div class="btn" onclick="abrirModal('modalBanco')" style="cursor: pointer; border-color: #e74c3c;">
+            <h3 style="color: #c0392b;"><i class="fa-solid fa-phone-slash"></i> Falsos Funcionários de Banco</h3>
+            <p style="color: #444;">O banco nunca liga pedindo sua senha ou pedindo para você fazer uma transferência de teste.</p>
+        </div>
+    </div>
+
+    <div id="modalWhats" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #c0392b; margin-top: 0;"><i class="fa-solid fa-message"></i> Falso Parente no WhatsApp</h2>
+            <p style="font-size: 16px; color: #444;">Como agir se alguém pedir dinheiro:</p>
+            <ul style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li><b>NÃO FAÇA O PIX.</b> Golpistas pegam fotos nas redes sociais e fingem ser seus familiares.</li>
+                <li>Normalmente eles dizem que "quebraram o celular" ou "precisam pagar um boleto urgente".</li>
+                <li>Ligue (faça uma ligação de voz normal) para o número antigo do seu parente e pergunte se é ele mesmo.</li>
+            </ul>
+            <button class="botao-fechar" onclick="fecharModal('modalWhats')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <div id="modalLinks" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #c0392b; margin-top: 0;"><i class="fa-solid fa-link"></i> Links e SMS Falsos</h2>
+            <p style="font-size: 16px; color: #444;">Como se proteger:</p>
+            <ul style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Os bancos <b>nunca</b> mandam mensagens com links (letrinhas azuis) pedindo para você atualizar senhas.</li>
+                <li>Se receber um SMS dizendo que uma compra suspeita foi aprovada e pedir para ligar para um número 0800, <b>não ligue!</b></li>
+                <li>Na dúvida, vá até sua agência ou ligue para o telefone oficial atrás do seu cartão.</li>
+            </ul>
+            <button class="botao-fechar" onclick="fecharModal('modalLinks')">Entendi / Fechar</button>
+        </div>
+    </div>
+    
+    <div id="modalBanco" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #c0392b; margin-top: 0;"><i class="fa-solid fa-phone-slash"></i> Falsos Funcionários de Banco</h2>
+            <p style="font-size: 16px; color: #444;">Fique atento às ligações:</p>
+            <ul style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Se alguém ligar dizendo ser do seu banco, informando que sua conta foi invadida e pedindo para você fazer um "Pix de segurança", <b>desligue na hora</b>.</li>
+                <li>Bancos nunca pedem para você transferir dinheiro.</li>
+                <li>Bancos nunca pedem a sua senha pelo telefone.</li>
+            </ul>
+            <button class="botao-fechar" onclick="fecharModal('modalBanco')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <div class="interactive-pet" id="petAssistant">
+        <div class="pet-avatar" onclick="mudarFala('A internet é ótima, mas precisamos ter atenção. Leia nossas dicas de segurança!')">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="pet-speech">
+            <strong>Seu Chico (Assistente):</strong>
+            <span id="textoFala">Lembre-se: nunca passe suas senhas, não clique em links estranhos e não faça Pix com pressa!</span>
+            
+            <div class="pet-acoes">
+                <button onclick="lerOpcoesDaPagina()" class="btn-acao-pet" title="Ouvir opções">
+                    <i class="fa-solid fa-list"></i> Opções
+                </button>
+                <button onclick="lerTextoAlto()" class="btn-acao-pet" title="Ouvir janela">
+                    <i class="fa-solid fa-volume-high"></i> Ouvir
+                </button>
+                <button onclick="alternarTamanhoFonte()" class="btn-acao-pet" title="Letra Maior">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i> Letra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Projeto Acadêmico de Inclusão Digital para a Terceira Idade</p>
+    </footer>
+
+    <script>
+        let vozes = [];
+        window.speechSynthesis.onvoiceschanged = () => { vozes = window.speechSynthesis.getVoices(); };
+
+        function mudarFala(frase) { document.getElementById('textoFala').innerText = frase; }
+        
+        function configurarVoz(fala) {
+            fala.lang = 'pt-BR'; fala.rate = 1.0; 
+            if (vozes.length > 0) {
+                let naturalVoice = vozes.find(v => v.lang.includes('pt') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Microsoft')));
+                fala.voice = naturalVoice ? naturalVoice : vozes.find(v => v.lang.includes('pt'));
+            }
+        }
+
+        function falarAlto(texto) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const fala = new SpeechSynthesisUtterance(texto);
+                configurarVoz(fala);
+                window.speechSynthesis.speak(fala);
+            } else { alert("Dispositivo não suporta leitura de voz."); }
+        }
+
+        function abrirModal(id) { 
+            document.getElementById(id).style.display = 'flex'; 
+            setTimeout(() => {
+                const modal = document.getElementById(id);
+                if(modal) {
+                    let texto = modal.innerText.replace('Entendi / Fechar', '');
+                    mudarFala('Lendo as dicas de segurança para você.');
+                    falarAlto(texto);
+                }
+            }, 500); 
+        }
+
+        function fecharModal(id) { 
+            document.getElementById(id).style.display = 'none';
+            if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); }
+            mudarFala('Janela fechada. Escolha outra dica.');
+        }
+
+        function lerOpcoesDaPagina() {
+            const botoes = document.querySelectorAll('.grid-buttons .btn');
+            let texto = "Estas são as opções disponíveis. ";
+            botoes.forEach((btn, index) => {
+                const titulo = btn.querySelector('h3');
+                const desc = btn.querySelector('p');
+                if(titulo && desc) { texto += `Opção ${index + 1}: ${titulo.innerText}. ${desc.innerText}. `; }
+                else { texto += `Opção ${index + 1}: ${btn.innerText}. `; }
+                texto += " ... ";
+            });
+            texto += "Toque na opção que desejar.";
+            mudarFala("Lendo todas as opções da tela.");
+            falarAlto(texto);
+        }
+
+        function lerTextoAlto() {
+            const modais = document.querySelectorAll('.modal-fundo');
+            let textoParaLer = '';
+            let modalAberto = false;
+            modais.forEach(modal => {
+                if (modal.style.display === 'flex') {
+                    textoParaLer = modal.innerText.replace('Entendi / Fechar', ''); 
+                    modalAberto = true;
+                }
+            });
+            if (modalAberto) {
+                mudarFala('Estou lendo as instruções em voz alta.');
+                falarAlto(textoParaLer);
+            } else {
+                textoParaLer = document.getElementById('textoFala').innerText;
+                falarAlto(textoParaLer);
+            }
+        }
+
+        function alternarTamanhoFonte() {
+            document.body.classList.toggle('fonte-grande');
+            if(document.body.classList.contains('fonte-grande')){
+                mudarFala('Letras aumentadas.'); falarAlto('Letras aumentadas.');
+            } else {
+                mudarFala('Tamanho normal.'); falarAlto('Tamanho normal.');
+            }
+        }
+    </script>
+</body>
+</html>

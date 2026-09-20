@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços Bancários - Conectados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div style="max-width: 800px; margin: 20px auto; text-align: left; padding: 0 15px;">
+        <a href="index.html" class="btn" style="display: inline-flex; width: auto; padding: 12px 20px; font-size: 16px;">
+            <i class="fa-solid fa-arrow-left"></i> Voltar para a Página Inicial
+        </a>
+    </div>
+
+    <div class="search-box" style="margin-bottom: 30px;">
+        <h1 style="color: #2C3E50; font-size: 28px; margin-bottom: 10px;">
+            <i class="fa-solid fa-credit-card" style="color: #D4A373;"></i> Serviços Bancários Básicos
+        </h1>
+        <p style="font-size: 16px; color: #555;">
+            Aprenda a usar o aplicativo do seu banco para ver saldo, pagar contas e fazer transferências com segurança.
+        </p>
+    </div>
+
+    <div class="grid-buttons">
+        <div class="btn" onclick="abrirModal('modalPix')" style="cursor: pointer; display: block; text-align: left; margin-bottom: 15px;">
+            <h3 style="color: #004080; margin-top: 0; font-size: 20px;"><i class="fa-solid fa-money-bill-transfer"></i> 1. Como fazer um Pix com segurança</h3>
+            <p style="font-size: 16px; color: #444; font-weight: normal; margin-bottom: 0;">Envie dinheiro na mesma hora, mas sempre conferindo o nome de quem vai receber!</p>
+        </div>
+
+        <div class="btn" onclick="abrirModal('modalBoleto')" style="cursor: pointer; display: block; text-align: left; margin-bottom: 15px;">
+            <h3 style="color: #004080; margin-top: 0; font-size: 20px;"><i class="fa-solid fa-barcode"></i> 2. Pagando contas pelo celular</h3>
+            <p style="font-size: 16px; color: #444; font-weight: normal; margin-bottom: 0;">Use a câmera do seu celular para ler o código de barras da sua conta.</p>
+        </div>
+        
+        <div class="btn" onclick="abrirModal('modalExtrato')" style="cursor: pointer; display: block; text-align: left; margin-bottom: 15px;">
+            <h3 style="color: #004080; margin-top: 0; font-size: 20px;"><i class="fa-solid fa-file-invoice"></i> 3. Como ver o Saldo e o Extrato</h3>
+            <p style="font-size: 16px; color: #444; font-weight: normal; margin-bottom: 0;">Confira quanto dinheiro você tem e veja tudo o que foi pago no mês.</p>
+        </div>
+    </div>
+
+    <div id="modalPix" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #004080; margin-top: 0;"><i class="fa-solid fa-money-bill-transfer"></i> Fazendo um Pix</h2>
+            <p style="font-size: 16px; color: #444;">Passo a passo seguro:</p>
+            <ol style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Abra o aplicativo do seu banco e procure pelo botão <b>Área Pix</b>.</li>
+                <li>Toque em <b>Transferir</b> ou <b>Pagar</b>.</li>
+                <li>Digite a chave Pix da pessoa.</li>
+                <li><b>MUITO IMPORTANTE:</b> Antes de digitar sua senha, leia com atenção o nome da pessoa que apareceu na tela. Só confirme se for a pessoa certa!</li>
+            </ol>
+            <button class="botao-fechar" onclick="fecharModal('modalPix')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <div id="modalBoleto" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #004080; margin-top: 0;"><i class="fa-solid fa-barcode"></i> Pagando Contas</h2>
+            <p style="font-size: 16px; color: #444;">Diga adeus às filas da lotérica:</p>
+            <ol style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>No aplicativo do banco, procure a opção <b>Pagar Boleto</b>.</li>
+                <li>Escolha a opção <b>Ler código de barras</b>. A câmera vai abrir.</li>
+                <li>Aponte a câmera para as barrinhas do boleto.</li>
+                <li>Confira se o valor está correto e digite sua senha para pagar.</li>
+            </ol>
+            <button class="botao-fechar" onclick="fecharModal('modalBoleto')">Entendi / Fechar</button>
+        </div>
+    </div>
+    
+    <div id="modalExtrato" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #004080; margin-top: 0;"><i class="fa-solid fa-file-invoice"></i> Ver Saldo e Extrato</h2>
+            <p style="font-size: 16px; color: #444;">Para controlar seu dinheiro:</p>
+            <ul style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Ao abrir o aplicativo, o seu <b>Saldo</b> geralmente aparece escondido. Toque no desenho de um "olho" para revelar.</li>
+                <li>Para ver onde o dinheiro foi gasto, toque na palavra <b>Extrato</b>.</li>
+            </ul>
+            <button class="botao-fechar" onclick="fecharModal('modalExtrato')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <div class="interactive-pet" id="petAssistant">
+        <div class="pet-avatar" onclick="mudarFala('Cuidar do seu dinheiro pelo celular é prático, e eu te ensino a fazer isso sem medo!')">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="pet-speech">
+            <strong>Seu Chico (Assistente):</strong>
+            <span id="textoFala">Siga as instruções com calma. A maior regra no banco é: leia tudo antes de apertar em confirmar!</span>
+            
+            <div class="pet-acoes">
+                <button onclick="lerOpcoesDaPagina()" class="btn-acao-pet" title="Ouvir opções">
+                    <i class="fa-solid fa-list"></i> Opções
+                </button>
+                <button onclick="lerTextoAlto()" class="btn-acao-pet" title="Ouvir janela">
+                    <i class="fa-solid fa-volume-high"></i> Ouvir
+                </button>
+                <button onclick="alternarTamanhoFonte()" class="btn-acao-pet" title="Letra Maior">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i> Letra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Projeto Acadêmico de Inclusão Digital para a Terceira Idade</p>
+    </footer>
+
+    <script>
+        let vozes = [];
+        window.speechSynthesis.onvoiceschanged = () => { vozes = window.speechSynthesis.getVoices(); };
+
+        function mudarFala(frase) { document.getElementById('textoFala').innerText = frase; }
+        
+        function configurarVoz(fala) {
+            fala.lang = 'pt-BR'; fala.rate = 1.0; 
+            if (vozes.length > 0) {
+                let naturalVoice = vozes.find(v => v.lang.includes('pt') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Microsoft')));
+                fala.voice = naturalVoice ? naturalVoice : vozes.find(v => v.lang.includes('pt'));
+            }
+        }
+
+        function falarAlto(texto) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const fala = new SpeechSynthesisUtterance(texto);
+                configurarVoz(fala);
+                window.speechSynthesis.speak(fala);
+            } else { alert("Dispositivo não suporta leitura de voz."); }
+        }
+
+        function abrirModal(id) { 
+            document.getElementById(id).style.display = 'flex'; 
+            setTimeout(() => {
+                const modal = document.getElementById(id);
+                if(modal) {
+                    let texto = modal.innerText.replace('Entendi / Fechar', '');
+                    mudarFala('Lendo as instruções para você.');
+                    falarAlto(texto);
+                }
+            }, 500); 
+        }
+
+        function fecharModal(id) { 
+            document.getElementById(id).style.display = 'none';
+            if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); }
+            mudarFala('Janela fechada. Escolha outra opção.');
+        }
+
+        function lerOpcoesDaPagina() {
+            const botoes = document.querySelectorAll('.grid-buttons .btn');
+            let texto = "Estas são as opções disponíveis. ";
+            botoes.forEach((btn, index) => {
+                const titulo = btn.querySelector('h3');
+                const desc = btn.querySelector('p');
+                if(titulo && desc) { texto += `Opção ${index + 1}: ${titulo.innerText}. ${desc.innerText}. `; }
+                else { texto += `Opção ${index + 1}: ${btn.innerText}. `; }
+                texto += " ... ";
+            });
+            texto += "Toque na opção que desejar.";
+            mudarFala("Lendo todas as opções da tela.");
+            falarAlto(texto);
+        }
+
+        function lerTextoAlto() {
+            const modais = document.querySelectorAll('.modal-fundo');
+            let textoParaLer = '';
+            let modalAberto = false;
+            modais.forEach(modal => {
+                if (modal.style.display === 'flex') {
+                    textoParaLer = modal.innerText.replace('Entendi / Fechar', ''); 
+                    modalAberto = true;
+                }
+            });
+            if (modalAberto) {
+                mudarFala('Estou lendo as instruções em voz alta.');
+                falarAlto(textoParaLer);
+            } else {
+                textoParaLer = document.getElementById('textoFala').innerText;
+                falarAlto(textoParaLer);
+            }
+        }
+
+        function alternarTamanhoFonte() {
+            document.body.classList.toggle('fonte-grande');
+            if(document.body.classList.contains('fonte-grande')){
+                mudarFala('Letras aumentadas.'); falarAlto('Letras aumentadas.');
+            } else {
+                mudarFala('Tamanho normal.'); falarAlto('Tamanho normal.');
+            }
+        }
+    </script>
+</body>
+</html>

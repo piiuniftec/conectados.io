@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portais do Cidadão - Conectados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div style="max-width: 800px; margin: 20px auto; text-align: left; padding: 0 15px;">
+        <a href="index.html" class="btn" style="display: inline-flex; width: auto; padding: 12px 20px; font-size: 16px;">
+            <i class="fa-solid fa-arrow-left"></i> Voltar para a Página Inicial
+        </a>
+    </div>
+
+    <div class="search-box" style="margin-bottom: 30px;">
+        <h1 style="color: #2C3E50; font-size: 28px; margin-bottom: 10px;">
+            <i class="fa-solid fa-landmark" style="color: #D4A373;"></i> Portais do Cidadão
+        </h1>
+        <p style="font-size: 16px; color: #555;">
+            Aprenda a acessar seus benefícios e serviços do governo sem sair de casa, com total segurança. Toque em um dos tópicos abaixo.
+        </p>
+    </div>
+
+    <div class="grid-buttons">
+        <div class="btn" onclick="abrirModal('modalGov')" style="cursor: pointer;">
+            <h3 style="color: #004080;"><i class="fa-solid fa-user-shield"></i> Como acessar o Gov.br</h3>
+            <p style="color: #444;">A conta Gov.br é a sua identidade na internet para acessar serviços públicos e assinar documentos.</p>
+        </div>
+
+        <div class="btn" onclick="abrirModal('modalINSS')" style="cursor: pointer;">
+            <h3 style="color: #004080;"><i class="fa-solid fa-file-invoice-dollar"></i> Consultando o Meu INSS</h3>
+            <p style="color: #444;">Veja seu extrato de pagamento, agende perícias e solicite benefícios sem precisar ir à agência.</p>
+        </div>
+        
+        <div class="btn" onclick="abrirModal('modalSUS')" style="cursor: pointer;">
+            <h3 style="color: #004080;"><i class="fa-solid fa-notes-medical"></i> Aplicativo Conecte SUS</h3>
+            <p style="color: #444;">Tenha sua carteirinha de vacinação e seu histórico de saúde sempre no celular.</p>
+        </div>
+    </div>
+
+    <div id="modalGov" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #004080; margin-top: 0;"><i class="fa-solid fa-user-shield"></i> Acessando o Gov.br</h2>
+            <p style="font-size: 16px; color: #444;">Para acessar e usar sua conta:</p>
+            <ol style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Baixe o aplicativo <b>gov.br</b> no seu celular.</li>
+                <li>Digite seu <b>CPF</b> e toque em Continuar.</li>
+                <li>Digite sua senha. Se esqueceu, toque em "Esqueci minha senha" e siga os passos para criar uma nova.</li>
+            </ol>
+            <button class="botao-fechar" onclick="fecharModal('modalGov')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <div id="modalINSS" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #004080; margin-top: 0;"><i class="fa-solid fa-file-invoice-dollar"></i> Consultando o Meu INSS</h2>
+            <p style="font-size: 16px; color: #444;">Para ver seus benefícios de forma fácil:</p>
+            <ol style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Abra o aplicativo <b>Meu INSS</b>.</li>
+                <li>Toque em <b>Entrar com gov.br</b> e coloque seu CPF e senha.</li>
+                <li>Na tela principal, procure por "Extrato de Pagamento" ou "Meus Benefícios" e toque na opção que deseja ler.</li>
+            </ol>
+            <button class="botao-fechar" onclick="fecharModal('modalINSS')">Entendi / Fechar</button>
+        </div>
+    </div>
+    
+    <div id="modalSUS" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #004080; margin-top: 0;"><i class="fa-solid fa-notes-medical"></i> Conecte SUS</h2>
+            <p style="font-size: 16px; color: #444;">Para acessar sua carteira de vacinação:</p>
+            <ol style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Abra o aplicativo <b>Meu SUS Digital</b> (antigo Conecte SUS).</li>
+                <li>Entre com seu CPF e senha do Gov.br.</li>
+                <li>Toque no botão "Vacinas" para ver todas as vacinas que você já tomou pelo sistema público.</li>
+            </ol>
+            <button class="botao-fechar" onclick="fecharModal('modalSUS')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <div class="interactive-pet" id="petAssistant">
+        <div class="pet-avatar" onclick="mudarFala('Acessar os portais do governo facilita muito a vida! Toque nos botões acima para ler com calma.')">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="pet-speech">
+            <strong>Seu Chico (Assistente):</strong>
+            <span id="textoFala">Toque em qualquer botão acima para eu te mostrar como usar os serviços do governo!</span>
+            
+            <div class="pet-acoes">
+                <button onclick="lerOpcoesDaPagina()" class="btn-acao-pet" title="Ouvir opções">
+                    <i class="fa-solid fa-list"></i> Opções
+                </button>
+                <button onclick="lerTextoAlto()" class="btn-acao-pet" title="Ouvir janela">
+                    <i class="fa-solid fa-volume-high"></i> Ouvir
+                </button>
+                <button onclick="alternarTamanhoFonte()" class="btn-acao-pet" title="Letra Maior">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i> Letra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Projeto Acadêmico de Inclusão Digital para a Terceira Idade</p>
+    </footer>
+
+    <script>
+        let vozes = [];
+        window.speechSynthesis.onvoiceschanged = () => { vozes = window.speechSynthesis.getVoices(); };
+
+        function mudarFala(frase) { document.getElementById('textoFala').innerText = frase; }
+        
+        function configurarVoz(fala) {
+            fala.lang = 'pt-BR'; fala.rate = 1.0; 
+            if (vozes.length > 0) {
+                let naturalVoice = vozes.find(v => v.lang.includes('pt') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Microsoft')));
+                fala.voice = naturalVoice ? naturalVoice : vozes.find(v => v.lang.includes('pt'));
+            }
+        }
+
+        function falarAlto(texto) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const fala = new SpeechSynthesisUtterance(texto);
+                configurarVoz(fala);
+                window.speechSynthesis.speak(fala);
+            } else { alert("Dispositivo não suporta leitura de voz."); }
+        }
+
+        function abrirModal(id) { 
+            document.getElementById(id).style.display = 'flex'; 
+            setTimeout(() => {
+                const modal = document.getElementById(id);
+                if(modal) {
+                    let texto = modal.innerText.replace('Entendi / Fechar', '');
+                    mudarFala('Lendo as instruções para você.');
+                    falarAlto(texto);
+                }
+            }, 500); // Aguarda a janela abrir para ler automaticamente
+        }
+
+        function fecharModal(id) { 
+            document.getElementById(id).style.display = 'none';
+            if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); }
+            mudarFala('Janela fechada. Escolha outra opção ou clique em Opções para ouvir.');
+        }
+
+        function lerOpcoesDaPagina() {
+            const botoes = document.querySelectorAll('.grid-buttons .btn');
+            let texto = "Estas são as opções disponíveis. ";
+            botoes.forEach((btn, index) => {
+                const titulo = btn.querySelector('h3');
+                const desc = btn.querySelector('p');
+                if(titulo && desc) { texto += `Opção ${index + 1}: ${titulo.innerText}. ${desc.innerText}. `; }
+                else { texto += `Opção ${index + 1}: ${btn.innerText}. `; }
+                texto += " ... ";
+            });
+            texto += "Toque na opção que desejar.";
+            mudarFala("Lendo todas as opções da tela.");
+            falarAlto(texto);
+        }
+
+        function lerTextoAlto() {
+            const modais = document.querySelectorAll('.modal-fundo');
+            let textoParaLer = '';
+            let modalAberto = false;
+            modais.forEach(modal => {
+                if (modal.style.display === 'flex') {
+                    textoParaLer = modal.innerText.replace('Entendi / Fechar', ''); 
+                    modalAberto = true;
+                }
+            });
+            if (modalAberto) {
+                mudarFala('Estou lendo as instruções em voz alta.');
+                falarAlto(textoParaLer);
+            } else {
+                textoParaLer = document.getElementById('textoFala').innerText;
+                falarAlto(textoParaLer);
+            }
+        }
+
+        function alternarTamanhoFonte() {
+            document.body.classList.toggle('fonte-grande');
+            if(document.body.classList.contains('fonte-grande')){
+                mudarFala('Letras aumentadas.'); falarAlto('Letras aumentadas.');
+            } else {
+                mudarFala('Tamanho normal.'); falarAlto('Tamanho normal.');
+            }
+        }
+    </script>
+</body>
+</html>

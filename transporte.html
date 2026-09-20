@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativos de Transporte - Conectados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div style="max-width: 1000px; margin: 20px auto; text-align: left; padding: 0 15px;">
+        <a href="index.html" class="btn" style="display: inline-flex; width: auto; padding: 12px 20px; font-size: 16px;">
+            <i class="fa-solid fa-arrow-left"></i> Voltar para a Página Inicial
+        </a>
+    </div>
+
+    <div class="search-box" style="margin-bottom: 30px;">
+        <h1 style="color: #2C3E50; font-size: 28px; margin-bottom: 10px;">
+            <i class="fa-solid fa-car" style="color: #000000;"></i> Aplicativos de Transporte (Uber e 99)
+        </h1>
+        <p style="font-size: 16px; color: #555;">
+            Aprenda a pedir um carro com segurança para ir ao médico, mercado ou visitar a família.
+        </p>
+    </div>
+
+    <div class="grid-buttons">
+        <div class="btn" onclick="abrirModal('modalPedir')" style="cursor: pointer;">
+            <h3 style="color: #000000;"><i class="fa-solid fa-location-dot"></i> Como pedir uma corrida</h3>
+            <p style="color: #444;">Veja o passo a passo para colocar o seu endereço e o local para onde deseja ir.</p>
+        </div>
+
+        <div class="btn" onclick="abrirModal('modalSeguranca')" style="cursor: pointer;">
+            <h3 style="color: #000000;"><i class="fa-solid fa-shield-halved"></i> Como conferir se o carro é o certo</h3>
+            <p style="color: #444;">Nunca entre no carro sem antes olhar a placa e a foto do motorista no seu celular.</p>
+        </div>
+        
+        <div class="btn" onclick="abrirModal('modalPagamento')" style="cursor: pointer;">
+            <h3 style="color: #000000;"><i class="fa-solid fa-wallet"></i> Formas de Pagamento</h3>
+            <p style="color: #444;">Aprenda a selecionar se vai pagar no dinheiro, cartão ou Pix direto no aplicativo.</p>
+        </div>
+    </div>
+
+    <!-- Modais -->
+    <div id="modalPedir" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #000; margin-top: 0;"><i class="fa-solid fa-location-dot"></i> Pedindo a Corrida</h2>
+            <p style="font-size: 16px; color: #444;">Siga os passos no seu aplicativo Uber ou 99:</p>
+            <ol style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Abra o aplicativo e toque na caixa escrito <b>"Para onde?"</b>.</li>
+                <li>Digite o endereço ou o nome do local que você quer ir (exemplo: Hospital São Lucas).</li>
+                <li>Confira se o endereço está correto e toque nele.</li>
+                <li>O aplicativo vai mostrar o preço. Se concordar, toque em <b>Confirmar</b> e aguarde.</li>
+            </ol>
+            <button class="botao-fechar" onclick="fecharModal('modalPedir')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <div id="modalSeguranca" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #000; margin-top: 0;"><i class="fa-solid fa-shield-halved"></i> Conferindo o Carro</h2>
+            <p style="font-size: 16px; color: #444;">Para sua segurança, antes de entrar:</p>
+            <ul style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Olhe na tela do seu celular e memorize a <b>Placa do Carro</b> (exemplo: ABC-1234) e a <b>Cor do veículo</b>.</li>
+                <li>Quando o carro chegar, olhe a placa física do carro. Se for diferente, <b>não entre</b>.</li>
+                <li>Ao abrir a porta, pergunte: "Boa tarde, qual o nome do passageiro?". Deixe o motorista dizer o seu nome.</li>
+            </ul>
+            <button class="botao-fechar" onclick="fecharModal('modalSeguranca')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <div id="modalPagamento" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #000; margin-top: 0;"><i class="fa-solid fa-wallet"></i> Formas de Pagamento</h2>
+            <p style="font-size: 16px; color: #444;">Como escolher a forma de pagar:</p>
+            <ul style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Antes de apertar em Confirmar a corrida, observe embaixo do preço. Terá um ícone de dinheiro ou cartão.</li>
+                <li>Toque ali para alterar. Você pode escolher <b>Dinheiro</b> para pagar direto ao motorista.</li>
+                <li>Sempre tenha notas trocadas se for pagar no dinheiro, pois facilita para o motorista!</li>
+            </ul>
+            <button class="botao-fechar" onclick="fecharModal('modalPagamento')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <!-- Assistente Virtual -->
+    <div class="interactive-pet" id="petAssistant">
+        <div class="pet-avatar" onclick="mudarFala('A tela está cheia de opções úteis! Toque nos botões para ler.')">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="pet-speech">
+            <strong>Seu Chico (Assistente):</strong>
+            <span id="textoFala">Aplicativos de transporte trazem muita independência. Toque nos botões se quiser que eu leia as opções.</span>
+            
+            <div class="pet-acoes">
+                <button onclick="lerOpcoesDaPagina()" class="btn-acao-pet"><i class="fa-solid fa-list"></i> Opções</button>
+                <button onclick="lerTextoAlto()" class="btn-acao-pet"><i class="fa-solid fa-volume-high"></i> Ouvir</button>
+                <button onclick="alternarTamanhoFonte()" class="btn-acao-pet"><i class="fa-solid fa-magnifying-glass-plus"></i> Letra</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Projeto Acadêmico de Inclusão Digital para a Terceira Idade</p>
+    </footer>
+
+    <!-- Scripts repetidos para funcionalidade total -->
+    <script>
+        let vozes = [];
+        window.speechSynthesis.onvoiceschanged = () => { vozes = window.speechSynthesis.getVoices(); };
+
+        function mudarFala(frase) { document.getElementById('textoFala').innerText = frase; }
+        
+        function configurarVoz(fala) {
+            fala.lang = 'pt-BR'; fala.rate = 1.0; 
+            if (vozes.length > 0) {
+                let naturalVoice = vozes.find(v => v.lang.includes('pt') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Microsoft')));
+                fala.voice = naturalVoice ? naturalVoice : vozes.find(v => v.lang.includes('pt'));
+            }
+        }
+
+        function falarAlto(texto) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const fala = new SpeechSynthesisUtterance(texto);
+                configurarVoz(fala);
+                window.speechSynthesis.speak(fala);
+            } else { alert("Dispositivo não suporta leitura de voz."); }
+        }
+
+        function abrirModal(id) { 
+            document.getElementById(id).style.display = 'flex'; 
+            setTimeout(() => {
+                const modal = document.getElementById(id);
+                if(modal) {
+                    let texto = modal.innerText.replace('Entendi / Fechar', '');
+                    mudarFala('Lendo as instruções para você.');
+                    falarAlto(texto);
+                }
+            }, 500); 
+        }
+
+        function fecharModal(id) { 
+            document.getElementById(id).style.display = 'none';
+            if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); }
+            mudarFala('Janela fechada. Escolha outra opção.');
+        }
+
+        function lerOpcoesDaPagina() {
+            const botoes = document.querySelectorAll('.grid-buttons .btn');
+            let texto = "Estas são as opções disponíveis. ";
+            botoes.forEach((btn, index) => {
+                const titulo = btn.querySelector('h3');
+                const desc = btn.querySelector('p');
+                if(titulo && desc) { texto += `Opção ${index + 1}: ${titulo.innerText}. ${desc.innerText}. `; }
+                else { texto += `Opção ${index + 1}: ${btn.innerText}. `; }
+                texto += " ... ";
+            });
+            texto += "Toque na opção que desejar.";
+            mudarFala("Lendo todas as opções da tela.");
+            falarAlto(texto);
+        }
+
+        function lerTextoAlto() {
+            const modais = document.querySelectorAll('.modal-fundo');
+            let textoParaLer = '';
+            let modalAberto = false;
+            modais.forEach(modal => {
+                if (modal.style.display === 'flex') {
+                    textoParaLer = modal.innerText.replace('Entendi / Fechar', ''); 
+                    modalAberto = true;
+                }
+            });
+            if (modalAberto) {
+                mudarFala('Estou lendo as instruções em voz alta.');
+                falarAlto(textoParaLer);
+            } else {
+                textoParaLer = document.getElementById('textoFala').innerText;
+                falarAlto(textoParaLer);
+            }
+        }
+
+        function alternarTamanhoFonte() {
+            document.body.classList.toggle('fonte-grande');
+            if(document.body.classList.contains('fonte-grande')){
+                mudarFala('Letras aumentadas.'); falarAlto('Letras aumentadas.');
+            } else {
+                mudarFala('Tamanho normal.'); falarAlto('Tamanho normal.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -4,47 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conectados - Portal de Inclusão Digital</title>
-    <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Conectando o arquivo CSS separado -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Banner com Imagem de Fundo e Texto na Esquerda -->
-    <header class="banner-topo">
+    <!-- Banner Restaurado com a imagem garantida no próprio HTML -->
+    <header class="banner-topo" style="background-image: url('banner-topo.png');">
         <div class="banner-texto">
             <h1>Conectados</h1>
             <p class="subtitle">Inclusão Digital para a Melhor Idade.</p>
         </div>
     </header>
 
-    <!-- Área de Busca / Dica do Microfone para a Terceira Idade -->
-    <div class="search-box">
-        <p><i class="fa-solid fa-microphone"></i> O que você quer aprender hoje?</p>
-        <p style="font-size: 14px; font-weight: normal; color: #555; margin-top: -5px; margin-bottom: 15px;">
-            Toque na caixa abaixo, clique no <b>microfone do seu teclado</b> e diga o que procura!
-        </p>
-        <input type="text" class="search-input" placeholder="Ex: Como ver o extrato no banco, evitar golpes...">
-    </div>
-
-    <!-- Botões Principais de Conteúdo (Com a inversão solicitada) -->
-    <div class="grid-buttons">
+    <div class="grid-buttons" style="margin-top: 40px;">
+        <!-- Nova Opção: Primeira da lista -->
+        <a href="saude.html" class="btn btn-saude"><i class="fa-solid fa-heart-pulse"></i> Cuidados com a Saúde e Bem-estar</a>
+        
         <a href="celular.html" class="btn"><i class="fa-solid fa-mobile-screen-button"></i> Usando o Celular</a>
-<a href="whatsapp.html" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp fa-lg"></i> Como Usar o WhatsApp</a>
-        <a href="#" class="btn" onclick="mudarFala('Aqui você aprende a acessar os portais do governo como Meu INSS e Gov.br de forma simples!')"><i class="fa-solid fa-landmark"></i> Tudo sobre Portais do Cidadão</a>
-        <a href="#" class="btn" onclick="mudarFala('Vamos ver como mexer no aplicativo do seu banco, ver extratos e fazer Pix com total segurança!')"><i class="fa-solid fa-credit-card"></i> Serviços Bancários Básicos</a>
-        <a href="#" class="btn" onclick="mudarFala('Muito importante! Aqui mostro como identificar e não cair em golpes na internet.')"><i class="fa-solid fa-shield-halved"></i> Como Evitar Golpes na Internet</a>
+        <a href="whatsapp.html" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp fa-lg"></i> Como Usar o WhatsApp</a>
+        <a href="portais.html" class="btn"><i class="fa-solid fa-landmark"></i> Portais do Cidadão (Gov.br, INSS)</a>
+        <a href="bancos.html" class="btn"><i class="fa-solid fa-credit-card"></i> Serviços Bancários Básicos</a>
+        <a href="golpes.html" class="btn"><i class="fa-solid fa-shield-halved"></i> Como Evitar Golpes na Internet</a>
+        <a href="transporte.html" class="btn btn-transporte"><i class="fa-solid fa-car"></i> Como Pedir Transporte (Uber e 99)</a>
+        <a href="youtube.html" class="btn btn-youtube"><i class="fa-brands fa-youtube"></i> Assistindo Vídeos no YouTube</a>
     </div>
 
-    <!-- Assistente Virtual Interativo Flutuante (Léo) -->
     <div class="interactive-pet" id="petAssistant">
-        <div class="pet-avatar" onclick="mudarFala('Estou aqui te acompanhando! Toque em qualquer botão acima para começarmos.')">
+        <div class="pet-avatar" onclick="mudarFala('Aqui estou! Escolha uma das opções abaixo para eu te ajudar.')">
             <i class="fa-solid fa-robot"></i>
         </div>
         <div class="pet-speech">
             <strong>Seu Chico (Assistente):</strong>
-            <span id="textoFala">Olá! Toque em qualquer botão ao lado para eu te ajudar a navegar com segurança!</span>
+            <span id="textoFala">Olá! Toque nos botões abaixo se precisar ouvir as opções ou aumentar a letra.</span>
+            
+            <div class="pet-acoes">
+                <button onclick="lerOpcoesDaPagina()" class="btn-acao-pet" title="Ouvir botões da tela">
+                    <i class="fa-solid fa-list"></i> Opções
+                </button>
+                <button onclick="lerTextoAlto()" class="btn-acao-pet" title="Ouvir texto atual">
+                    <i class="fa-solid fa-volume-high"></i> Ouvir
+                </button>
+                <button onclick="alternarTamanhoFonte()" class="btn-acao-pet" title="Aumentar letras">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i> Letra
+                </button>
+            </div>
         </div>
     </div>
 
@@ -52,13 +56,60 @@
         <p>Projeto Acadêmico de Inclusão Digital para a Terceira Idade</p>
     </footer>
 
-    <!-- Script JavaScript -->
     <script>
-        function mudarFala(frase) {
-            event.preventDefault(); 
-            document.getElementById('textoFala').innerText = frase;
+        let vozes = [];
+        window.speechSynthesis.onvoiceschanged = () => { vozes = window.speechSynthesis.getVoices(); };
+
+        function mudarFala(frase) { document.getElementById('textoFala').innerText = frase; }
+        
+        function alternarTamanhoFonte() {
+            document.body.classList.toggle('fonte-grande');
+            if(document.body.classList.contains('fonte-grande')){
+                mudarFala('Letras aumentadas.');
+                falarAlto('Letras aumentadas.');
+            } else {
+                mudarFala('Letras em tamanho normal.');
+                falarAlto('Tamanho normal.');
+            }
+        }
+        
+        function configurarVoz(fala) {
+            fala.lang = 'pt-BR';
+            fala.rate = 1.0; 
+            if (vozes.length > 0) {
+                let naturalVoice = vozes.find(v => v.lang.includes('pt') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Microsoft')));
+                fala.voice = naturalVoice ? naturalVoice : vozes.find(v => v.lang.includes('pt'));
+            }
+        }
+
+        function falarAlto(texto) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const fala = new SpeechSynthesisUtterance(texto);
+                configurarVoz(fala);
+                window.speechSynthesis.speak(fala);
+            } else { alert("Desculpe, seu dispositivo não suporta leitura de voz."); }
+        }
+
+        function lerOpcoesDaPagina() {
+            const botoes = document.querySelectorAll('.grid-buttons .btn');
+            let texto = "Estas são as opções disponíveis na tela. ";
+            botoes.forEach((btn, index) => {
+                const titulo = btn.querySelector('h3');
+                const desc = btn.querySelector('p');
+                if(titulo && desc) { texto += `Opção ${index + 1}: ${titulo.innerText}. ${desc.innerText}. `; }
+                else { texto += `Opção ${index + 1}: ${btn.innerText}. `; }
+                texto += " ... ";
+            });
+            texto += "Toque na opção que desejar.";
+            mudarFala("Estou lendo as opções da tela. Escute com atenção.");
+            falarAlto(texto);
+        }
+
+        function lerTextoAlto() {
+            let textoParaLer = document.getElementById('textoFala').innerText;
+            falarAlto(textoParaLer);
         }
     </script>
-
 </body>
 </html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usando o YouTube - Conectados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div style="max-width: 1000px; margin: 20px auto; text-align: left; padding: 0 15px;">
+        <a href="index.html" class="btn" style="display: inline-flex; width: auto; padding: 12px 20px; font-size: 16px;">
+            <i class="fa-solid fa-arrow-left"></i> Voltar para a Página Inicial
+        </a>
+    </div>
+
+    <div class="search-box" style="margin-bottom: 30px;">
+        <h1 style="color: #2C3E50; font-size: 28px; margin-bottom: 10px;">
+            <i class="fa-brands fa-youtube" style="color: #FF0000;"></i> Assistindo Vídeos no YouTube
+        </h1>
+        <p style="font-size: 16px; color: #555;">
+            Encontre músicas antigas, receitas, missas ou tutoriais de artesanato de forma fácil e gratuita.
+        </p>
+    </div>
+
+    <div class="grid-buttons">
+        <div class="btn" onclick="abrirModal('modalBuscar')" style="cursor: pointer; border-color: #FF0000;">
+            <h3 style="color: #c0392b;"><i class="fa-solid fa-magnifying-glass"></i> Como buscar um vídeo ou música</h3>
+            <p style="color: #444;">Aprenda a pesquisar exatamente o que você quer assistir usando o teclado ou a voz.</p>
+        </div>
+
+        <div class="btn" onclick="abrirModal('modalInscricao')" style="cursor: pointer; border-color: #FF0000;">
+            <h3 style="color: #c0392b;"><i class="fa-solid fa-bell"></i> Como se inscrever em um canal</h3>
+            <p style="color: #444;">Gostou dos vídeos de uma pessoa? Inscreva-se para não perder as novidades dela.</p>
+        </div>
+        
+        <div class="btn" onclick="abrirModal('modalAnuncios')" style="cursor: pointer; border-color: #FF0000;">
+            <h3 style="color: #c0392b;"><i class="fa-solid fa-forward-step"></i> Como pular as propagandas</h3>
+            <p style="color: #444;">Entenda como funcionam os anúncios antes dos vídeos e como passá-los para frente.</p>
+        </div>
+    </div>
+
+    <!-- Modais -->
+    <div id="modalBuscar" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #c0392b; margin-top: 0;"><i class="fa-solid fa-magnifying-glass"></i> Buscando Vídeos</h2>
+            <p style="font-size: 16px; color: #444;">Para encontrar o que deseja assistir:</p>
+            <ol style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Abra o aplicativo do <b>YouTube</b>.</li>
+                <li>Lá em cima, toque no desenho da <b>Lupa</b>.</li>
+                <li>Digite o que procura (exemplo: "Receita de bolo de milho") ou toque no desenho de <b>Microfone</b> e fale o que quer buscar.</li>
+                <li>Toque no vídeo que mais gostar para ele começar a tocar!</li>
+            </ol>
+            <button class="botao-fechar" onclick="fecharModal('modalBuscar')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <div id="modalInscricao" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #c0392b; margin-top: 0;"><i class="fa-solid fa-bell"></i> Inscrever-se no Canal</h2>
+            <p style="font-size: 16px; color: #444;">Para salvar seus criadores favoritos:</p>
+            <ul style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Ao assistir a um vídeo que você gostou muito, olhe logo abaixo do vídeo.</li>
+                <li>Vai ter o nome de quem fez o vídeo e um botão vermelho (ou preto) escrito <b>Inscrever-se</b>.</li>
+                <li>Toque nele. É <b>totalmente gratuito</b>. Agora, na aba "Inscrições" do aplicativo, você sempre verá vídeos novos dessa pessoa.</li>
+            </ul>
+            <button class="botao-fechar" onclick="fecharModal('modalInscricao')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <div id="modalAnuncios" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h2 style="color: #c0392b; margin-top: 0;"><i class="fa-solid fa-forward-step"></i> Pular Propagandas</h2>
+            <p style="font-size: 16px; color: #444;">Como o YouTube é gratuito, ele mostra anúncios:</p>
+            <ul style="font-size: 16px; color: #444; line-height: 1.6;">
+                <li>Se um anúncio começar a tocar antes do seu vídeo, aguarde alguns segundos.</li>
+                <li>Olhe para o canto direito da tela. Vai aparecer um botão escrito <b>"Pular Anúncio"</b> com uma setinha.</li>
+                <li>Basta tocar nesse botão que o anúncio some na hora e a sua música ou vídeo começa.</li>
+            </ul>
+            <button class="botao-fechar" onclick="fecharModal('modalAnuncios')">Entendi / Fechar</button>
+        </div>
+    </div>
+
+    <!-- Assistente Virtual -->
+    <div class="interactive-pet" id="petAssistant">
+        <div class="pet-avatar" onclick="mudarFala('A tela está cheia de opções úteis! Toque nos botões para ler.')">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="pet-speech">
+            <strong>Seu Chico (Assistente):</strong>
+            <span id="textoFala">Ouvir música ou aprender artesanato no YouTube é ótimo! Precisa que eu leia as opções para você?</span>
+            
+            <div class="pet-acoes">
+                <button onclick="lerOpcoesDaPagina()" class="btn-acao-pet"><i class="fa-solid fa-list"></i> Opções</button>
+                <button onclick="lerTextoAlto()" class="btn-acao-pet"><i class="fa-solid fa-volume-high"></i> Ouvir</button>
+                <button onclick="alternarTamanhoFonte()" class="btn-acao-pet"><i class="fa-solid fa-magnifying-glass-plus"></i> Letra</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Projeto Acadêmico de Inclusão Digital para a Terceira Idade</p>
+    </footer>
+
+    <!-- Scripts repetidos para funcionalidade total -->
+    <script>
+        let vozes = [];
+        window.speechSynthesis.onvoiceschanged = () => { vozes = window.speechSynthesis.getVoices(); };
+
+        function mudarFala(frase) { document.getElementById('textoFala').innerText = frase; }
+        
+        function configurarVoz(fala) {
+            fala.lang = 'pt-BR'; fala.rate = 1.0; 
+            if (vozes.length > 0) {
+                let naturalVoice = vozes.find(v => v.lang.includes('pt') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Microsoft')));
+                fala.voice = naturalVoice ? naturalVoice : vozes.find(v => v.lang.includes('pt'));
+            }
+        }
+
+        function falarAlto(texto) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const fala = new SpeechSynthesisUtterance(texto);
+                configurarVoz(fala);
+                window.speechSynthesis.speak(fala);
+            } else { alert("Dispositivo não suporta leitura de voz."); }
+        }
+
+        function abrirModal(id) { 
+            document.getElementById(id).style.display = 'flex'; 
+            setTimeout(() => {
+                const modal = document.getElementById(id);
+                if(modal) {
+                    let texto = modal.innerText.replace('Entendi / Fechar', '');
+                    mudarFala('Lendo as instruções para você.');
+                    falarAlto(texto);
+                }
+            }, 500); 
+        }
+
+        function fecharModal(id) { 
+            document.getElementById(id).style.display = 'none';
+            if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); }
+            mudarFala('Janela fechada. Escolha outra opção.');
+        }
+
+        function lerOpcoesDaPagina() {
+            const botoes = document.querySelectorAll('.grid-buttons .btn');
+            let texto = "Estas são as opções disponíveis. ";
+            botoes.forEach((btn, index) => {
+                const titulo = btn.querySelector('h3');
+                const desc = btn.querySelector('p');
+                if(titulo && desc) { texto += `Opção ${index + 1}: ${titulo.innerText}. ${desc.innerText}. `; }
+                else { texto += `Opção ${index + 1}: ${btn.innerText}. `; }
+                texto += " ... ";
+            });
+            texto += "Toque na opção que desejar.";
+            mudarFala("Lendo todas as opções da tela.");
+            falarAlto(texto);
+        }
+
+        function lerTextoAlto() {
+            const modais = document.querySelectorAll('.modal-fundo');
+            let textoParaLer = '';
+            let modalAberto = false;
+            modais.forEach(modal => {
+                if (modal.style.display === 'flex') {
+                    textoParaLer = modal.innerText.replace('Entendi / Fechar', ''); 
+                    modalAberto = true;
+                }
+            });
+            if (modalAberto) {
+                mudarFala('Estou lendo as instruções em voz alta.');
+                falarAlto(textoParaLer);
+            } else {
+                textoParaLer = document.getElementById('textoFala').innerText;
+                falarAlto(textoParaLer);
+            }
+        }
+
+        function alternarTamanhoFonte() {
+            document.body.classList.toggle('fonte-grande');
+            if(document.body.classList.contains('fonte-grande')){
+                mudarFala('Letras aumentadas.'); falarAlto('Letras aumentadas.');
+            } else {
+                mudarFala('Tamanho normal.'); falarAlto('Tamanho normal.');
+            }
+        }
+    </script>
+</body>
+</html>
