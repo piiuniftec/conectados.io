@@ -46,12 +46,8 @@
             <p style="font-size: 16px; color: #444; font-weight: normal; margin-bottom: 0;">Alguns modelos de celulares possuem a função de MODO FÁCIL, sendo ideal para quem possui dificuldade de enxergar.</p>
         </div>
         <div class="btn" onclick="abrirModal('modalFonte')" style="cursor: pointer; display: block; text-align: left; margin-bottom: 15px;">
-            <h3 style="color: #004080; margin-top: 0; font-size: 20px;"><i class="fa-solid fa-font"></i> 5. Como Aumentar a Fonte (Letra)</h3>
-            <p style="font-size: 16px; color: #444; font-weight: normal; margin-bottom: 0;">Aumente os textos no celular para facilitar a leitura.</p>
-        </div>
-        <div class="btn" onclick="abrirModal('modalBrilho')" style="cursor: pointer; display: block; text-align: left; margin-bottom: 15px;">
-            <h3 style="color: #004080; margin-top: 0; font-size: 20px;"><i class="fa-solid fa-sun"></i> 6. Como Ajustar o Brilho da Tela</h3>
-            <p style="font-size: 16px; color: #444; font-weight: normal; margin-bottom: 0;">Ajuste o brilho da tela para evitar forçar a visão enquanto utiliza seu celular.</p>
+            <h3 style="color: #004080; margin-top: 0; font-size: 20px;"><i class="fa-solid fa-font"></i> 5. Como Aumentar a Fonte (letra) e ajustar o brilho da tela (Letra)</h3>
+            <p style="font-size: 16px; color: #444; font-weight: normal; margin-bottom: 0;">Aumente os textos e ajuste o brilho no celular para facilitar a leitura e evitar forçar demais sua visão.</p>
         </div>
         <div class="btn" onclick="abrirModal('modalVolume')" style="cursor: pointer; display: block; text-align: left; margin-bottom: 15px;">
             <h3 style="color: #004080; margin-top: 0; font-size: 20px;"><i class="fa-solid fa-volume-high"></i> 7. Como Ajustar o Volume</h3>
@@ -166,27 +162,26 @@
             <video controls onplay="pararVozAssistente()" style="width: 100%; border-radius: 8px; margin-bottom: 15px; background-color: #000;">
             <source src="modo facil.mp4" type="video/mp4">
             Seu navegador não suporta vídeos.
-        </video>
+            </video>
         <button class="botao-fechar" onclick="fecharModal('modalModoFacil')">Entendi / Fechar</button>
     </div></div>
     <div id="modalFonte" class="modal-fundo"><div class="modal-conteudo">
-        <h2 style="color: #004080; margin-top: 0;"><i class="fa-solid fa-font"></i> Aumentar a Fonte</h2>
+        <h2 style="color: #004080; margin-top: 0;"><i class="fa-solid fa-font"></i> Aumentar a Fonte e brilho da tela</h2>
         <p style="font-size: 16px; color: #444;">Para ler sem esforço:</p>
         <ol style="font-size: 16px; color: #444; line-height: 1.6;">
-            <li>Vá em **Configurações** / **Ajustes**.</li>
-            <li>Entre em **Visor** ou **Tela**.</li>
-            <li>Toque em **Tamanho e estilo da fonte** e arraste a barra para o tamanho que achar melhor.</li>
+            <li>Procure no seu celular pelo símbolo de engrenagem.</li>
+            <li>Dentro das configurações gerais, role a tela até aparecer a opção Visor ou Tela ou até mesmo Display, conforme o modelo do seu celular.</li>
+            <li>Nas configurações do visor, você pode ajustar manualmente o brilho, movimentando a barra para esquerda ou direita e verifique qual ajuste fica ideal.</li>
+            <li>Existe também a opção de Brilho Adaptável que você pode habilitar que ajusta automaticamente o brilho da tela conforme a iluminação do ambiente em que você esteja, reduzindo mais em determinado horário para preservar a visão.</li>
+            <li>Antes de aumentar o tamanho da letra, você pode ajustar o Zoom, tocando nesta opção e ajustando o tamanho para o ideal para sua necessidade.</li>
+            <li>O Zoom aumenta ou diminui o tamanho dos botões inferiores da sua tela para fechar ou minimizar um aplicativo aberto, além dos elementos superiores, onde tem o sinal do wifi, dados móveis, carga da bateria, etc....</li>
+            <li>Ajustando o zoom, volte na tela de configurações de Visor, e desta vez, toque na opção Tamanho da Letra e ajuste o tamanho e tipo de fonte ideal, evitando deixar na letra tamanho máximo, para não atrapalhar na visualização dos demais aplicativos</li>
         </ol>
+            <video controls onplay="pararVozAssistente()" style="width: 100%; border-radius: 8px; margin-bottom: 15px; background-color: #000;">
+            <source src="letra e brilho.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+            </video>
         <button class="botao-fechar" onclick="fecharModal('modalFonte')">Entendi / Fechar</button>
-    </div></div>
-    <div id="modalBrilho" class="modal-fundo"><div class="modal-conteudo">
-        <h2 style="color: #004080; margin-top: 0;"><i class="fa-solid fa-sun"></i> Ajustar Brilho</h2>
-        <p style="font-size: 16px; color: #444;">Proteja sua visão ajustando a claridade:</p>
-        <ul style="font-size: 16px; color: #444; line-height: 1.6;">
-            <li>Deslize o dedo de cima para baixo na tela duas vezes para abrir o **Painel Rápido**.</li>
-            <li>Mova a barrinha de brilho (com o símbolo de sol) para a esquerda para escurecer ou para a direita para clarear.</li>
-        </ul>
-        <button class="botao-fechar" onclick="fecharModal('modalBrilho')">Entendi / Fechar</button>
     </div></div>
     <div id="modalVolume" class="modal-fundo"><div class="modal-conteudo">
         <h2 style="color: #004080; margin-top: 0;"><i class="fa-solid fa-volume-high"></i> Ajustar Volume</h2>
