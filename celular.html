@@ -325,22 +325,27 @@
         }
         function fecharModal(id) { 
             document.getElementById(id).style.display = 'none';
+            
+            // Procura o vídeo dentro do modal que fechou e o interrompe
+            const modal = document.getElementById(id);
+            if (modal) {
+                const video = modal.querySelector('video');
+                if (video) { 
+                    video.pause(); 
+                    video.currentTime = 0; 
+                }
+            }
+
             if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); }
             mudarFala('Janela fechada. Escolha outra opção.');
         }
-        function lerOpcoesDaPagina() {
-            const botoes = document.querySelectorAll('.grid-buttons .btn');
-            let texto = "Estas são as opções disponíveis. ";
-            botoes.forEach((btn, index) => {
-                const titulo = btn.querySelector('h3');
-                const desc = btn.querySelector('p');
-                if(titulo && desc) { texto += `Opção ${index + 1}: ${titulo.innerText}. ${desc.innerText}. `; }
-                else { texto += `Opção ${index + 1}: ${btn.innerText}. `; }
-                texto += " ... ";
-            });
-            texto += "Toque na opção que desejar.";
-            mudarFala("Lendo todas as opções da tela.");
-            falarAlto(texto);
+
+        // Adicione também esta função para calar o assistente ao dar play no vídeo
+        function pararVozAssistente() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            mudarFala('Assistindo ao vídeo explicativo.');
         }
         function lerTextoAlto() {
             const modais = document.querySelectorAll('.modal-fundo');
