@@ -283,6 +283,12 @@
                 fala.voice = naturalVoice ? naturalVoice : vozes.find(v => v.lang.includes('pt'));
             }
         }
+       function pararVozAssistente() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            mudarFala('Assistindo ao vídeo explicativo.');
+        } 
         function falarAlto(texto) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
