@@ -325,8 +325,6 @@
         }
         function fecharModal(id) { 
             document.getElementById(id).style.display = 'none';
-            
-            // Procura o vídeo dentro do modal que fechou e o interrompe
             const modal = document.getElementById(id);
             if (modal) {
                 const video = modal.querySelector('video');
@@ -339,8 +337,6 @@
             if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); }
             mudarFala('Janela fechada. Escolha outra opção.');
         }
-
-        // Adicione também esta função para calar o assistente ao dar play no vídeo
         function pararVozAssistente() {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
