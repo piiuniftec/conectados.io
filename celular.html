@@ -104,7 +104,7 @@
         <p style="font-size: 15px; font-weight: bold; color: #2C3E50; margin-top: 20px; margin-bottom: 8px;">
             <i class="fa-solid fa-circle-play"></i> Prefere assistir? Veja o vídeo passo a passo:
         </p>
-        <video controls style="width: 100%; border-radius: 8px; margin-bottom: 15px; background-color: #000;">
+        <video controls onplay="pararVozAssistente()" style="width: 100%; border-radius: 8px; margin-bottom: 15px; background-color: #000;">
             <source src="ok google.mp4" type="video/mp4">
             Seu navegador não suporta vídeos.
         </video>
@@ -118,6 +118,13 @@
             <li>Um menu vai aparecer na tela.</li>
             <li>Toque na opção **"Desligar"** ou arraste o ícone indicado para desligar.</li>
         </ol>
+         <p style="font-size: 15px; font-weight: bold; color: #2C3E50; margin-top: 20px; margin-bottom: 8px;">
+            <i class="fa-solid fa-circle-play"></i> Prefere assistir? Veja o vídeo passo a passo:
+        </p>
+        <video controls style="width: 100%; border-radius: 8px; margin-bottom: 15px; background-color: #000;">
+            <source src="ok google.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
         <button class="botao-fechar" onclick="fecharModal('modalDesligar')">Entendi / Fechar</button>
     </div></div>
     <div id="modalReiniciar" class="modal-fundo"><div class="modal-conteudo">
